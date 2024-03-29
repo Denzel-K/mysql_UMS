@@ -7,14 +7,18 @@
 
 <div class="row">
   <div class="col-6">
-    <h1>Users</h1>
+    <h2></h2>
   </div>
   <div class="col-6 d-flex justify-content-end">
-    <a href="/adduser" type="button" class="btn btn-primary align-self-center">+ add user</a>
+    <a href="/adduser" type="button" class="btn btn-primary align-self-center">+ Add Employee</a>
   </div>
 </div>
 
 <table class="table table-bordered">
+  <caption>
+    Employee information
+  </caption>
+  
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -22,23 +26,58 @@
       <th scope="col">Last Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
-      <th scope="col" class="text-end">Action</th>
+      <th scope="col">Role</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
-  <tbody>
 
+  <tbody>
     {{#each rows}}
     <tr>
-      <th scope="row">{{this.id}}</th>
-      <td>{{this.first_name}}</td>
-      <td>{{this.last_name}}</td>
-      <td>{{this.email}}</td>
-      <td>{{this.phone}}</td>
-      <td class="text-end">
-        <a href="/viewuser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
+      <td data-cell="#">{{this.id}}</td>
+      <td data-cell="First name:">{{this.first_name}}</td>
+      <td data-cell="Last name:">{{this.last_name}}</td>
+      <td data-cell="Email:">{{this.email}}</td>
+      <td data-cell="Phone:">{{this.phone}}</td>
+      <td data-cell="Role:">{{this.role}}</td>
+      <td data-cell="" class="action_td">      
+          <a href="/viewuser/{{this.id}}" class="btn update btn_update">
+            <img src="images/eye-2.svg" alt="view">
+          </a>
+
+          <a href="/edituser/{{this.id}}" class="btn update btn_update">
+              <img src="images/pencil-solid.svg" alt="delete">
+          </a>
+
+          <a href="/{{this.id}}" class="btn border-shadow delete" data-id>
+              <span class="text-gradient"><img src="images/trash-can-solid.svg" alt="delete"></span>
+          </a>
+        
+
+        {{!-- <div class="action_box">
+          <div class="actions">
+              <a href="/viewuser/{{this.id}}" class="btn update btn_update">
+                  <img src="images/pencil-solid.svg" alt="view">
+              </a>
+          </div>
+
+          <div class="actions">
+              <a href="/edituser/{{this.id}}" class="btn update btn_update">
+                  <img src="images/pencil-solid.svg" alt="delete">
+              </a>
+          </div>
+
+          <div class="actions">
+              <a href="/{{this.id}}" class="btn border-shadow delete" data-id>
+                  <span class="text-gradient"><img src="images/trash-can-solid.svg" alt="delete"></span>
+              </a>
+          </div>
+      </div> --}}
+
+        {{!-- <a href="/viewuser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
         <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>
           Edit</a>
-        <a href="/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a>
+        <a href="/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i> Delete</a> --}}
       </td>
     </tr>
     {{/each}}

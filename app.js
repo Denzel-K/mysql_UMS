@@ -1,6 +1,6 @@
 const express = require('express');
 const hbs = require("express-handlebars");
-//const path = require("path");
+const path = require("path");
 const routes = require('./server/routes/user');
 
 require('dotenv').config();
@@ -10,7 +10,7 @@ const app = express();
 //Middleware
 app.use(express.urlencoded({ extended: true })); // New
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('./public'));
 app.use('/', routes);
 
 // Templating Engine

@@ -1,0 +1,79 @@
+.col-6{
+    margin-bottom: 1.2rem;
+}
+table{
+    border-spacing: 0px;
+    width: 95%;
+    margin: auto;
+}
+caption{
+    caption-side: top;
+    width: 100%;
+    background-color: rgb(37, 30, 44);
+    padding: 12px;
+    font-size: 20px;
+    text-align: left;
+    color: rgb(207, 238, 250);
+}
+td, th{
+    padding: .85em .65em;
+    text-align: center;
+}
+
+.action-td {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.action_td a img {
+    width: 18px;
+}
+
+@media(max-width: 750px) {
+    table {
+        width: 100%;
+    }
+    thead, tbody, th, td, tr{
+        display: block;
+    }
+    thead tr{
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr td{
+        border: none;
+        position: relative;
+        text-align: left;
+        padding: 0.5rem 0.8rem;
+        display: grid;
+        gap: 0.2rem;
+        grid-template-columns: 14ch auto;
+    }
+
+    tr td::before{
+        content: attr(data-cell);
+        font-weight: 700;
+    }
+    caption {
+        width: 100%;
+        font-size: 18px;
+    }
+    .action_td{
+        width: 40ch;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+a {
+    text-decoration: none;
+}
+.role-p {
+    font-size: 16px;
+    font-weight: 600;
+}
