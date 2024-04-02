@@ -44,7 +44,7 @@ async function performDatabaseOperations() {
   try {
     connection = await getConnection();
 
-    const port = process.env.PORT || 5000;
+    const port = process.env.PORT || 8080;
     app.listen(port, () => console.log(`App listening at http://localhost:${port}`));
 
     // const results = await query('DESC Employees');
