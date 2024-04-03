@@ -27,11 +27,11 @@ const mysql = require('mysql');
 const util = require('util');
 
 // Create a connection pool
-const pool = mysql.createPool({
-  host: 'sql11.freemysqlhosting.net',
-  user: 'sql11696257',
-  password: 'gvEaBccqlU',
-  database: 'sql11696257'
+let pool = mysql.createPool({
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE
 });
 
 // Promisify the pool connection methods
