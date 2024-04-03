@@ -1,11 +1,12 @@
 const mysql = require('mysql');
+require('dotenv').config();
 
 // Connection Pool
 let connection = mysql.createPool({
-  host: 'sql11.freemysqlhosting.net',
-  user: 'sql11696257',
-  password: 'gvEaBccqlU',
-  database: 'sql11696257'
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE
 });
 
 
@@ -95,20 +96,6 @@ exports.update = (req, res) => {
 // Delete User
 exports.delete = (req, res) => {
 
-  // Delete a record
-
-  // connection.query('DELETE FROM user WHERE id = ?', [req.params.id], (err, rows) => {
-
-  //   if(!err) {
-  //     res.redirect('/');
-  //   } else {
-  //     console.log(err);
-  //   }
-  //   console.log('The data from user table: \n', rows);
-
-  // });
-
-  // Hide a record
 
   connection.query('UPDATE Employees SET status = ? WHERE id = ?', ['removed', req.params.id], (err, rows) => {
     if (!err) {
